@@ -21,13 +21,13 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build Solution
-        run: msbuild.exe SeRestoreAbuse.sln /p:Configuration=Release /p:Platform=x64
+        run: msbuild.exe NT-AUTH-NewPrompt.sln /p:Configuration=Release /p:Platform=x64
 
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: x64/Release/SeRestoreAbuse.exe
+          files: x64/Release/NT-AUTH-NewPrompt.exe
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
