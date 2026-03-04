@@ -31,7 +31,7 @@ typedef enum
 
 #define BASE_10        10
 #define WIN_LOGON_PATH L"C:\\Windows\\System32\\winlogon.exe"
-#define CMD_PATH       L"PowerShell.exe"
+#define CMD_PATH       L"C:\\Windows\\System32\\cmd.exe"
 
 // ############################# Fn Declarations #############################
 
