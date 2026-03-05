@@ -26,12 +26,42 @@ typedef enum
     DEMO_ERR_GENERIC       = 100, // Generic error
 } DEMO_STATUS;
 
+// ############################ Struct Definitions ############################
+
 typedef struct _THREADPOOL_CTX
 {
     PTP_POOL            pThreadPool;
     TP_CALLBACK_ENVIRON CallBackEnviron;
     PTP_CLEANUP_GROUP   pCleanupGroup;
 } THREADPOOL_CTX, *PTHREADPOOL_CTX;
+
+typedef struct _DEMO_CONFIG
+{
+    HANDLE hShutdownEvent;
+
+    // Two handles for each of the input and output pipes - one for the parent
+    // process and one for the child process.
+    HANDLE hCmdInputRead;
+    HANDLE hCmdInputWrite;
+    HANDLE hCmdOutputRead;
+    HANDLE hCmdOutputWrite;
+
+    // Threadpool structures
+    PTHREADPOOL_CTX pThreadPoolCtx;
+} DEMO_CONFIG, *PDEMO_CONFIG;
+
+// ############################## Cmd Functions ##############################
+
+/**
+    @brief  Creates a new cmd.exe process with the impersonated token,
+redirecting its input and output through pipes so that the parent process can
+            interact with it.
+    @param  hImpersonationToken - Handle to the impersonation token to use when
+                                  creating the new process.
+    @retval             - DEMO_STATUS indicating success or failure.
+**/
+DEMO_STATUS
+CreateCmdInstance(HANDLE hImpersonationToken);
 
 // ############################ Thread Functions ############################
 

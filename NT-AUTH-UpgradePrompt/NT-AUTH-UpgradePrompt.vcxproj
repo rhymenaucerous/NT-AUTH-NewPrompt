@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NT-AUTH-UpgradePrompt.c" />
+    <ClCompile Include="CmdPrompt.c" />
+    <ClCompile Include="Main.c" />
     <ClCompile Include="Priv.c" />
     <ClCompile Include="Threads.c" />
   </ItemGroup>

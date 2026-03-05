@@ -48,8 +48,6 @@ ThreadPoolInit(PTHREADPOOL_CTX *ppThreadPoolCtx)
         goto EXIT;
     }
 
-    SetThreadpoolThreadMaximum(pThreadPoolCtx->pThreadPool, 1);
-
     bRet = SetThreadpoolThreadMinimum(pThreadPoolCtx->pThreadPool, 1);
     if (FALSE == bRet)
     {

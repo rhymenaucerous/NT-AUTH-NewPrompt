@@ -27,7 +27,9 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: x64/Release/NT-AUTH-NewPrompt.exe
+          files: |
+            x64/Release/NT-AUTH-NewPrompt.exe
+            x64/Release/NT-AUTH-UpgradePrompt.exe
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
